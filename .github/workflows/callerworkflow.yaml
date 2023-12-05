@@ -38,8 +38,11 @@ jobs:
           cd "$GITHUB_WORKSPACE/PythonScripts/"
           python -m pip install --upgrade pip
           pip install -r requirements.txt # installing the request module, to invoke the apis we need that/prerequresites installing with requirements.txt
-     
+          
+      # I can provide the Other steps in my workflow
+      
       - name: Trigger the workflow
+        if: success()
         run: |
           cd "$GITHUB_WORKSPACE/PythonScripts/"
           python $GITHUB_WORKSPACE/PythonScripts/triggerscripts.py ${{ env.pat_token }}  ${{ github.event.inputs.CalledWorkflow_github_account}}  ${{ github.event.inputs.CalledWorkflow_repo_github}} ${{ github.event.inputs.calledworkflow_name}} ${{ env.parameter1 }} ${{ env.parameter2 }}
