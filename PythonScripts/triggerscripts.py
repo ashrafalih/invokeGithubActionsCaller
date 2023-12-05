@@ -18,17 +18,17 @@ def trigger_workflow(workflow_name, parameter1, parameter2):
     }
 
     data = {
-        "event_type": Workflow_Name,  # Added a comma here
+        "event_type": Workflow_Name,  
         "client_payload": {  # this is the way to get the values in workflow1 to workflow2
             'parameter1': parameter1,
-            'parameter2': parameter2  # Fixed a typo here
+            'parameter2': parameter2  
         }
     }
 
     # using the request module and invoking the post method and constructing the API
     responseValue = requests.post(f"https://api.github.com/repos/{OWNER}/{REPO}/dispatches", json=data, headers=headers)
     print(responseValue.content)
-    responseValue = requests.post(f"https://api.github.com/repos/{OWNER}/{REPO}/dispatches", json=data, headers=headers)
-    print("The response message is ", responseValue.content)  # Fixed a typo here
+    # responseValue = requests.post(f"https://api.github.com/repos/{OWNER}/{REPO}/dispatches", json=data, headers=headers)
+    print("The response message is ", responseValue.content)  
 
-trigger_workflow(Workflow_Name, parameter1, parameter2)  # Corrected the function call
+trigger_workflow(Workflow_Name, parameter1, parameter2) 
