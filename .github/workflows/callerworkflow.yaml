@@ -38,7 +38,7 @@ jobs:
           cd "$GITHUB_WORKSPACE/PythonScripts/"
           python -m pip install --upgrade pip
           pip install -r requirements.txt # installing the request module, to invoke the apis we need that/prerequresites installing with requirements.txt
-          exit 1  # I am testing, intentionally make the step fail
+          # exit 1  # I am testing, intentionally make the step fail(it's working as expected)
           
       # I can provide the Other steps in my workflow
       
